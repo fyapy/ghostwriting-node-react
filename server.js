@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const passport = require("passport");
 
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
@@ -21,7 +22,11 @@ db.authenticate()
 //config
 const config = require("./config/keys");
 
-app.get("/", (req, res) => res.send("INDEX"));
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport Config
+require("./config/passport")(passport);
 
 //Use routes
 app.use("/api/users", users);
