@@ -4,13 +4,17 @@
   "description": "Design Project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server"
+    "client": "npm start --prefix client",
+    "server": "nodemon server",
+    "client-install": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Amir Abdullin",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
     "mysql2": "^1.6.4",
