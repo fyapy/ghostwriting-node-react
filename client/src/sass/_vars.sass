@@ -1,0 +1,130 @@
+$accent: #F23958
+$orange: orange
+$text: #333
+$white: #fff
+$gray: #eee
+$blue: #498dff
+
+// Helpers
+body
+	margin: 0
+	padding: 0
+	font-family: "Raleway", sans-serif
+
+a
+	text-decoration: none
+	&:focus
+		outline: none
+
+.is-invalid
+	border: 1px solid red
+
+.fw600
+	font-weight: 600 !important
+
+::-webkit-scrollbar-button
+	background-repeat: no-repeat
+	width: 6px
+	height: 0px
+
+::-webkit-scrollbar-track
+	background-color: $white
+
+::-webkit-scrollbar-thumb
+	background-color: $accent
+	background-position: center
+	background-repeat: no-repeat
+
+::-webkit-resizer
+	background-repeat: no-repeat
+	width: 7px
+	height: 0px
+
+::-webkit-scrollbar
+	width: 7px
+
+// Scroll in preview
+.messages-preview
+	&::-webkit-scrollbar
+		width: 0
+	&::-webkit-resizer
+		width: 0
+
+// Button
+.button
+	display: inline-block
+	border: none
+	color: #fff
+	text-decoration: none
+	background-color: $accent
+	padding: 15px 45px
+	font-size: 13px
+	text-transform: uppercase
+	font-weight: 600
+	letter-spacing: 3px
+	border-radius: 2px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	cursor: pointer
+	&::after
+		transition: background-color .2s ease
+		position: absolute
+		content: ''
+		height: 4px
+		bottom: 0
+		width: 100%
+		background-color: darken($accent, 50%)
+		opacity: .18
+		border-bottom-left-radius: 2px
+		border-bottom-right-radius: 2px
+		left: 0
+	&:focus, &:hover
+		text-decoration: none
+		color: #fff
+	&:hover
+		background-color: lighten($accent, 5%)
+		&::after
+			opacity: .22
+	&:active
+		background-color: darken($accent, 5%)
+		&::after
+			opacity: .32
+
+.hamburger
+	&:focus
+		outline: none
+	&-inner
+		background-color: $accent !important
+		&:after, &:before
+			background-color: $accent !important
+
+// Styling Loading Spinner
+.lds-dual-ring
+	display: flex
+	justify-content: center
+	height: 64px
+	&:after
+		content: ""
+		display: block
+		width: 46px
+		height: 46px
+		margin: 1px
+		border-radius: 50%
+		border: 5px solid $accent
+		border-color: $accent transparent $accent transparent
+		animation: lds-dual-ring 1.2s linear infinite
+
+@keyframes lds-dual-ring 
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+// Styling Range component
+.rc-slider-handle
+	border-color: $accent
+	&:hover, &:active, &:focus
+		box-shadow: none
+		border-color: darken($accent, 10%)

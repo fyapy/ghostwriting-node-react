@@ -1,8 +1,9 @@
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
-module.exports = new Sequelize("PrettyDesign", "root", "", {
+module.exports = new Sequelize("gwapp", "root", "", {
   dialect: "mysql",
+  logging: false,
   operatorsAliases: {
     $and: Op.and,
     $or: Op.or,

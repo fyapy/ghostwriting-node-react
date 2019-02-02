@@ -1,0 +1,207 @@
+/*==========  Desktop First  ==========*/
+
+// ≥1400px
+@media only screen and (max-width: 1400px)
+	.post
+		width: calc(100% - 75px)
+	.messages
+		&-wrapper
+			flex-wrap: wrap
+		&-preview
+			width: 100%
+			border-right: 1px solid $gray
+		&-dialog
+			width: 100%
+
+// ≥1200px
+@media only screen and (max-width: 1200px)
+	.posts
+		&-item
+			&-budget
+				width: 100%
+				text-align: left
+				padding-left: 10px
+	.create
+		.form
+			&-body
+				width: 100%
+
+// ≥992px
+@media only screen and (max-width: 992px)
+	.nav
+
+// ≥768px
+@media only screen and (max-width: 768px)
+	::-webkit-scrollbar
+		width: 0px
+	.main
+	.form
+		width: calc(100% - 20px)
+		padding: 0 10px
+		&-body
+			width: 100%
+		&-group
+			flex-direction: column
+		&-subtitle
+			width: 100%
+			padding: 0
+			text-align: left
+		&-control
+			width: calc(100% - 20px) !important
+		&-helper
+			margin-left: 0
+		&-invalid
+			width: 100%
+			margin-left: 0
+			font-size: 14px
+		&-submit
+			margin-left: 0
+			width: 100%
+	.posts
+		&-add
+			display: block
+	.create
+		.form
+			&-subtitle
+				width: calc(100% - 20px)
+			&-control
+				width: calc(100% - 20px)
+			&-submit
+				width: 100%
+				margin: 0
+		&-or
+			width: 40px
+		&-check
+			width: 170px
+	.post
+		width: calc(100% - 20px)
+	.balance
+		margin: 30px 0
+		&-avatar
+			display: none
+		&-status
+			width: 100%
+		&-cash-out
+			width: calc(100% - 40px)
+		&-pay, &-history
+			margin-top: 20px
+			width: 100%
+
+// ≥576px
+@media only screen and (max-width: 576px)
+	.nav
+		&.opened
+			min-width: 80%
+		&.closed
+			min-width: 0
+			max-width: 0
+		&-logo
+			text-align: left !important
+			padding-left: 20px
+			margin-bottom: 0
+		&-item
+			&.indent
+				margin-bottom: 25px
+	.main
+		min-width: 100%
+		padding: 0
+		&-blocker
+			&.opened
+				left: 80%
+	.home
+		&-box
+			padding-bottom: 0
+		&-title
+			font-size: 43px
+	.posts
+		width: 100%
+		&-title
+			padding: 0 10px
+		&-item
+			padding: 0
+			&:hover
+				.posts-item-body
+					width: 100%
+			&-img
+				position: absolute
+			&-title
+				width: calc(100% - 70px)
+				padding: 0 0 0 70px
+			&-body
+				width: 100%
+			&-budget
+				width: calc(100% - 70px)
+				padding-left: 70px
+	.create
+		.form
+			padding-left: 10px
+			padding-right: 10px
+			width: calc(100% - 20px)
+	.messages-dialog
+		border-right: none
+		border-left: none
+	.dialog
+		&-list
+			overflow-x: hidden
+		&-message
+			&-avatar
+				width: 55px
+				img
+					margin: 7px 0 0 10px
+			&.me
+				.dialog
+					&-message
+						&-avatar
+							img
+								margin: 7px 10px 0 0
+	.profile
+		height: auto
+		&-info
+			flex-wrap: wrap
+		&-avatar
+			width: calc(100% - 30px)
+			padding: 0 15px
+			margin-top: 20px
+		&-stats
+			width: 100%
+			margin: 20px 0
+	.users
+		&-wrapper
+			flex-wrap: wrap
+		&-list
+			padding: 0 10px
+		&-info
+			width: 100%
+		&-stats
+			width: 100%
+			flex-direction: row
+			margin-top: 10px
+		&-likes, &-dislikes
+			width: 50%
+	.user
+		&-item
+			flex-wrap: wrap
+		&-avatar
+			width: 100%
+			display: block
+			padding: 0 10px
+			text-align: center
+			img
+				max-width: 250px
+				margin-bottom: 10px
+		&-info
+			width: 100%
+		&-btn
+			a
+				width: 100%
+	.deals
+		&-btn
+			&:first-child
+				margin-bottom: 5px
+	.contract
+		&-content
+			flex-wrap: wrap
+		&-posts
+			width: 100%
+		&-user
+			width: 100%

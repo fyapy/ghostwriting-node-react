@@ -1,7 +1,1212 @@
-body
-	background-color: #ffffff
-	margin: 0
-	padding: 0
+@import '_vars'
+@import './../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss'
+@import './../libs/fontawesome/css/all.min.css'
+@import '_fonts'
 
-.is-invalid
-	border: 1px solid red
+// Side Menu Settings 
+.App
+	display: flex
+	height: 100vh
+	width: 100vw
+	overflow-x: hidden
+
+.nav
+	background-color: $accent
+	min-width: 55px
+	transition: .25s ease-in-out
+	position: relative
+	&-toggle
+		font-size: 25px
+		width: 60px
+		text-align: center
+		position: absolute
+		top: 0
+		right: -60px
+		z-index: 999
+		cursor: pointer
+	&-list
+		margin: 0
+		padding: 0
+		list-style-type: none
+		overflow: hidden
+	&.opened
+		min-width: 400px
+
+.main
+	padding: 0 10px 0 10px
+	position: relative
+	overflow-y: scroll
+	min-width: calc(100% - 20px - 55px)
+	&.opened
+		overflow: hidden
+	&-blocker
+		position: fixed
+		left: 0px
+		top: 0
+		bottom: 0
+		right: 0
+		z-index: 3
+		background-color: #000000
+		opacity: 0
+		visibility: hidden
+		&.closed
+			transition: .25s ease-in-out .25s
+		&.opened
+			visibility: visible
+			opacity: .3
+			left: 400px
+			transition: .25s ease-in-out
+
+// Styling Navbar
+.nav
+	&-link
+		color: $white
+		text-decoration: none
+		font-size: 24px
+		white-space: nowrap
+		padding: 12px 12px
+		display: block
+		transition: .25s ease-in-out
+		letter-spacing: 1px
+		i
+			margin-right: 20px
+			font-size: 25px
+			width: 30px
+			text-align: center
+			transition: .25s ease-in-out
+		&.smaller
+			font-size: 16px
+	&-item
+		position: relative
+		transition: .25s ease-in-out
+		&.indent
+			margin-bottom: 60px
+		&:after
+			content: ''
+			width: 100%
+			height: 1px
+			background-color: $text
+			opacity: .1
+			display: block
+			position: absolute
+			left: 55px
+			right: 0
+			bottom: 0
+			transition: .25s ease-in-out
+		&:hover
+			background-color: darken($accent, 10%)
+			i
+				margin-right: 40px
+		&.vk
+			position: absolute
+			bottom: 0
+			width: 100%
+			background-color: darken($accent, 10%)
+		&.dev
+			position: absolute
+			bottom: 50px
+			width: 100%
+			text-align: center
+			i
+				font-size: 13px
+				margin: 0 0 0 0px
+			.nav-link
+				font-size: 13px
+				padding: 5px 0
+			&:hover
+				background-color: $accent
+				i
+					margin-left: 20px
+	&-unreaded
+		position: absolute
+		left: 34px
+		top: 12px
+		width: 15px
+		height: 15px
+		line-height: 14px
+		font-size: 11px
+		color: $accent
+		text-align: center
+		font-weight: 500
+		border-radius: 50%
+		background-color: $white
+		box-shadow: 0 0 9px rgba(0, 0, 0, 0.2)
+		font-family: sans-serif
+	&-avatar
+		padding: 10px 5px 5px
+		display: flex
+		align-items: center
+		img
+			width: 45px
+			border-radius: 50%
+			margin-right: 17px
+			box-shadow: 0 0 9px rgba(0,0,0,.2)
+			transition: .25s ease-in-out
+		&:hover
+			img
+				margin-right: 37px
+	&-logo
+		display: block
+		padding: 9px	6px
+		margin-bottom: 40px
+		letter-spacing: 0
+		text-align: left
+		font-weight: 500
+		span
+			font-size: 0
+			transition: .25s ease-in-out
+	&.opened
+		.nav
+			&-item
+				&:after
+					left: 20px
+			&-logo
+				text-align: center
+				span
+					font-size: 24px
+	&.closed
+		.dev
+			margin-left: 100px
+
+// Styling home page
+.home
+	height: 100%
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-wrap: wrap
+	line-height: 1.6
+	&-box
+		padding-bottom: 100px
+	&-title
+		font-size: 50px
+		font-weight: 600
+		line-height: 1
+		margin-bottom: 15px
+		text-align: center
+	&-subtitle
+		font-size: 25px
+		line-height: 1.4
+		text-align: center
+		color: $accent
+		font-weight: 500
+	&-text
+		flex-basis: 100%
+		text-align: center
+		max-width: 450px
+		font-size: 18px
+		padding-bottom: 10px
+	&-btns
+		justify-content: space-around
+		display: flex
+		flex-wrap: wrap
+		margin-top: 10px
+		&-link
+			background-color: $accent
+			color: $white
+			padding: 13px 25px
+			min-width: 163px
+			font-weight: 500
+			margin-bottom: 10px
+			&.right
+				background-color: $text
+
+// Styling form
+.form
+	text-align: center
+	display: flex
+	justify-content: center
+	flex-direction: column
+	margin-top: 60px
+	line-height: 1.4
+	&-warning
+		font-weight: 500
+		font-size: 20px
+		margin-bottom: 10px
+		a
+			color: $accent
+	&-title
+		font-size: 25px
+		font-weight: 500
+	&-body
+		width: 600px
+		align-self: center
+		line-height: 1.6
+	&-group
+		display: flex
+		margin-bottom: 8px
+		flex-wrap: wrap
+	&-subtitle
+		font-weight: 500
+		font-size: 18px
+		text-align: right
+		padding: 0 10px
+		width: 30%
+		line-height: 32px
+	&-control
+		width: 60%
+		border-radius: 7px
+		border: 1px solid $gray
+		line-height: 1.15
+		padding: 6px 10px
+		font-size: 16px
+		&.is-invalid
+			border-color: $accent
+		&:focus
+			outline: none
+	&-invalid
+		width: 600%
+		margin-left: calc(30% + 20px)
+		text-align: left
+		font-weight: 500
+		color: $accent
+	&-helper
+		width: 60%
+		margin-left: calc(30% + 20px)
+		text-align: left
+		font-weight: 500
+		a
+			text-decoration: none
+			color: $accent
+			&:hover
+				color: darken($accent, 10%)
+	&-submit
+		margin-left: calc(30% + 20px)
+		padding: 12px 30px
+		font-weight: 500
+
+// Styling posts list
+.posts
+	height: calc(100% - 60px)
+	overflow-y: scroll
+	line-height: 1.6
+	padding-top: 60px
+	&-title
+		max-width: 100%
+		margin: 0 auto 21px
+		font-size: 25px
+		text-align: center
+	&-add
+		padding: 7px 25px
+		font-size: 14px
+	&-item
+		max-width: 1450px
+		margin: 0 auto 30px
+		display: flex
+		flex-wrap: wrap
+		color: $text
+		text-decoration: none
+		position: relative
+		padding: 0 10px
+		&-img
+			width: 55px
+			img
+				position: absolute
+				left: 5px
+				transition: .25s
+				width: 55px
+				box-shadow: 0 0 9px rgba(0,0,0,.2)
+				border-radius: 50%
+		&:hover
+			.posts-item
+				&-img
+					img
+						left: 15px
+				&-body
+					padding-left: 5px
+					width: calc(100% - 60px)
+		&-body
+			width: calc(100% - 55px)
+			display: flex
+			flex-wrap: wrap
+			box-shadow: 0 4px 8px -3px rgba(0,0,0,.2)
+			border-radius: 8px
+			padding-bottom: 10px
+			transition: .25s
+		&-title
+			width: calc(75% - 10px - 20px)
+			padding: 0 10px
+			line-height: 25px
+			font-weight: 500
+			font-size: 20px
+		&-budget
+			width: 25%
+			text-align: right
+			color: $accent
+			font-weight: 600
+			line-height: 25px
+			white-space: nowrap
+		&-text
+			width: calc(100% - 10px - 30px)
+			padding: 0 10px 0 20px
+			font-weight: 300
+			margin-top: 5px
+			line-height: 1.4
+		&-date
+			width: calc(70% - 30px)
+			padding: 0 10px 0 20px
+			font-size: 14px
+		&-metadata
+			width: calc(30% - 20px)
+			padding: 0 0 0 10px
+			text-align: right
+			font-size: 14px
+			i
+				margin-left: 10px
+	&-nomore
+		text-align: center
+
+// Styling Create Post Page
+.create
+	.form
+		&-body
+			width: 1100px
+		&-subtitle
+			font-size: 18px
+			font-weight: 500
+			width: calc(25% - 20px)
+		&-control
+			width: calc(75% - 32px)
+			font-family: "Raleway", sans-serif
+		&-submit
+			margin-left: 25%
+		&-group
+			&.fdr
+				flex-direction: row
+		&-invalid
+			margin-left: 25%
+	textarea
+		min-height: 50px
+	&-budget
+		width: 60px !important
+		padding: 1px 8px
+		line-height: 28px
+	&-or
+		font-size: 14px
+		padding: 5px 5px 0
+		font-weight: 300
+	&-check
+		margin-top: 6px
+		display: flex
+		font-size: 14px
+
+// Styling post page
+.post
+	max-width: 1300px
+	margin: 65px auto 0
+	&-title
+		text-align: center
+		width: 100%
+		font-weight: 500
+		font-size: 20px
+		margin-bottom: 20px
+	&-topline
+		display: flex
+		flex-wrap: wrap
+	&-avatar
+		width: 100px
+		img
+			width: 90px
+			box-shadow: 0 0 9px rgba(0,0,0,.2)
+			border-radius: 50%
+	&-stats
+		margin-left: 10px
+		width: calc(50% - 100px)
+		&-name
+			font-size: 20px
+			font-weight: 500
+			line-height: 1.4
+			margin-bottom: 5px
+		&-like, &-dislike
+			margin-bottom: 4px
+			border-radius: 20px
+			color: $accent
+			padding: 3px 5px 3px 10px
+			font-size: 14px
+			width: 115px
+			box-shadow: 0 0 9px rgba(0, 0, 0, 0.2)
+			i
+				font-size: 14px
+		&-dislike
+			color: $text
+	&-budget
+		width: calc(50% - 10px)
+		&-title, &-price
+			text-align: right
+			font-size: 18px
+			margin-bottom: 3px
+		&-title
+			font-weight: 600
+		&-price
+			color: $accent
+			font-weight: 300
+	&-text
+		margin: 25px 0 0 15px
+		width: 100%
+		line-height: 1.6
+	&-views, &-date
+		padding: 5px 0 20px 0
+	&-date
+		width: calc(50% - 10px)
+		margin-left: 10px
+		font-size: 14px
+	&-views
+		width: 50%
+		text-align: right
+		font-size: 14px
+	&-bottomline
+		width: 100%
+		display: flex
+		justify-content: center
+		&-send
+			margin-top: 30px
+
+// Styling Messages page
+.messages
+	height: 100%
+	&-wrapper
+		display: flex
+		align-items: center
+		max-width: 1200px
+		margin: 0 auto
+		height: 100%
+	&-preview, &-dialog
+		border: 1px solid $gray
+		height: 90%
+	&-preview
+		width: 30%
+		border-top-left-radius: 3px
+		border-bottom-left-radius: 3px
+		border-right: none
+		overflow-y: scroll
+		overflow-x: hidden
+		&-loader
+			height: 100%
+			display: flex
+			justify-content: center
+			align-items: center
+		&-empty
+			text-align: center
+			margin-top: 25px
+			a
+				display: block
+				color: $accent
+				font-weight: 500
+	&-dialog
+		width: 70%
+		border-top-right-radius: 3px
+		border-bottom-right-radius: 3px
+		position: relative
+		&-close
+			position: absolute
+			font-weight: 500
+			background-color: $white
+			padding: 3px 8px
+			display: flex
+			top: 13px
+			right: 80px
+			color: $accent
+			cursor: pointer
+			transition: .25s
+			&:hover
+				color: darken($accent, 10%)
+				i
+					margin-right: 8px
+			i
+				margin-right: 5px
+				font-size: 15px
+				transition: .25s
+			span
+				font-size: 14px
+				line-height: 18px
+		&-banner
+			display: flex
+			justify-content: center
+			height: 100%
+			align-items: center
+			font-size: 17px
+			&-wrapper
+				max-width: 350px
+				text-align: center
+			i
+				display: block
+				font-size: 60px
+			a
+				color: $accent
+				font-weight: 500
+
+// Sryling message preview
+.preview
+	width: 100%
+	display: flex
+	transition: .25s ease-in-out
+	&:first-child
+		border-top-left-radius: 3px
+	&:hover
+		background-color: rgba(242, 57, 88, .45)
+	&-avatar
+		width: 60px
+		margin: 0 0 0 10px
+		img
+			width: 46px
+			margin: 7px 0 3px 0
+			border-radius: 50%
+	&-data
+		width: calc(100% - 70px)
+		color: $text
+		border-bottom: 1px solid $gray
+	&-name
+		margin: 8px 0 5px 0
+		font-size: 16px
+		font-weight: 600
+	&-text
+		font-size: 14px
+		font-weight: 400
+		display: flex
+.unreaded
+	background-color: $accent
+	border-radius: 50%
+	height: 7px
+	width: 7px
+	margin: 5px 5px 0 
+	opacity: .85
+
+// Styling message dialog
+.dialog
+	height: 100%
+	&-user
+		height: 48px
+		display: flex
+		border-bottom: 1px solid $gray
+		&-name
+			font-size: 16px
+			margin-left: 18px
+			font-weight: 600
+			line-height: 48px
+			width: calc(100% - 70px)
+			.link
+				color: $text
+		&-online
+			font-size: 13px
+			font-weight: 400
+			margin-left: 10px
+			color: lighten($text, 20%)
+		&-avatar
+			width: 70px
+			a
+				display: block
+			img
+				width: 30px
+				margin-top: 10px
+				border-radius: 50%
+	&-list
+		display: flex
+		flex-direction: column-reverse
+		overflow-y: scroll
+		height: calc(100% - 55px - 48px - 5px)
+		margin-bottom: 5px
+	&-empty
+		text-align: center
+		margin-bottom: 10px
+	&-message
+		width: 100%
+		display: flex
+		margin-bottom: 9px
+		white-space: pre-wrap
+		&-avatar
+			width: 70px
+			img
+				width: 43px
+				margin: 7px 0 0 25px
+				border-radius: 50%
+		&-data
+			display: flex
+			flex-wrap: wrap
+			align-items: flex-start
+			margin: 0 10px
+			width: calc(100% - 70px)
+		&-name
+			font-size: 13px
+			font-weight: 600
+			line-height: 1.6
+		&-date
+			font-size: 13px
+			font-weight: 400
+			margin: 0 5px
+			line-height: 1.6
+		&-text
+			font-size: 15px
+			font-weight: 400
+			width: 100%
+		&.me
+			flex-direction: row-reverse
+			.dialog
+				&-message
+					&-avatar
+						img
+							margin: 7px 25px 0 0
+					&-data
+						text-align: right
+						flex-direction: row-reverse
+	&-form
+		padding: 8px 10px
+		height: calc(55px - 16px)
+		display: flex
+		border-top: 1px solid $gray
+		&-text
+			width: calc(100% - 70px)
+			border-radius: 5px
+			border-color: $gray
+			resize: none
+			padding: 7px 12px
+			font-size: 17px
+			transition: .25s
+			&:focus
+				outline: none
+				font-size: 15px
+		&-btn
+			width: 70px
+			color: $accent
+			font-size: 20px
+			border: none
+			background-color: transparent
+			cursor: pointer
+			transition: .25s ease-in-out
+			&:hover
+				color: darken($accent, 10%)
+	&-choose
+		&-worker
+			margin-left: 10px
+			color: $accent
+			transition: .25s
+			font-size: 14px
+			i
+				transition: .25s
+				font-size: 15px
+			&:hover
+				color: darken($accent, 10%)
+				i
+					margin-right: 3px
+
+// Styling profile page
+.profile
+	display: flex
+	justify-content: center
+	height: 100%
+	align-items: center
+	&-info
+		width: 700px
+		display: flex
+		justify-content: center
+	&-avatar
+		width: 200px
+		&-img
+			width: 100%
+			&.hide
+				display: none
+		&-title
+			margin: 10px 0 5px
+			text-align: center
+			color: $accent
+			font-weight: 500
+		&-uploaded
+			color: $text
+			font-size: 13px
+			font-weight: 500
+	&-cropper
+		width: 100%
+		&-file
+			margin-top: 10px
+			display: none
+		&-btn
+			background-color: $accent
+			margin-top: 10px
+			padding: 10px 0px
+			width: 100%
+	&-upload
+		margin-top: 5px
+		padding: 10px 0px
+		width: 100%
+		background-color: $gray
+		color: $text
+		cursor: default
+		&:hover, &:active
+			background-color: $gray
+			color: $text
+		&.active
+			display: block
+			background-color: $accent
+			color: $white
+			cursor: pointer
+			&:hover
+				background-color: lighten($accent, 10%)
+	&-stats
+		width: calc(100% - 250px)
+		display: flex
+		flex-wrap: wrap
+		flex-direction: column
+	&-name
+		width: calc(100% - 30px)
+		font-size: 19px
+		font-weight: 500
+		padding: 0 15px
+		margin-bottom: 3px
+	&-online
+		font-weight: 400
+		font-size: 13px
+	&-view
+		background-color: $accent
+		color: $white
+		font-weight: 400
+		padding: 0 5px
+		border-radius: 20px
+		transition: .25s
+		margin-left: 5px
+		font-size: 12px
+		&:hover
+			padding-left: 8px
+			background-color: darken($accent, 10%)
+	&-date
+		font-size: 14px
+		padding: 0 15px
+		margin-bottom: 7px
+	&-marks
+		width: calc(100% - 30px)
+		margin: 0 15px
+		padding: 6px 0
+	&-likes, &-dislikes
+		margin-bottom: 5px
+		color: $accent
+		border-radius: 3px
+		border-radius: 20px
+		padding: 3px 10px
+		font-size: 18px
+		font-weight: 500
+		box-shadow: 0 0 9px rgba(0, 0, 0, 0.2)
+		width: calc(100% - 20px)
+		max-width: 220px
+		i
+			margin-right: 2px
+	&-dislikes
+		color: $text
+	&-form
+		width: 100%
+		display: flex
+		flex-direction: column
+		&-title
+			font-size: 14px
+			margin: 10px 15px 0
+		&-updated
+			color: $accent
+			font-size: 13px
+			font-weight: 500
+	&-description
+		margin: 0 15px
+		padding: 8px 10px
+		border: 1px solid $gray
+		height: 75px
+		resize: none
+		border-radius: 3px
+		border-bottom-right-radius: 0
+		font-family: "Raleway", sans-serif
+		transition: .25s ease-in-out
+		&:focus
+			outline: none
+			border-color: darken($gray, 10%)
+	&-btn
+		margin: 0 15px
+		width: 150px
+		padding: 5px 10px
+		border-radius: 3px
+		border-top-right-radius: 0
+		border-top-left-radius: 0
+		align-self: flex-end
+		letter-spacing: 0
+
+// Styling users page
+.users
+	padding-top: 50px
+	height: calc(100% - 50px)
+	overflow-y: scroll
+	&-list
+		max-width: 900px
+		margin: 0 auto
+	&-title
+		margin-bottom: 30px
+		text-align: center
+		font-weight: 500
+		font-size: 22px
+	&-item
+		color: $text
+		margin-bottom: 20px
+		display: flex
+		&:hover
+			img
+				margin-left: 5px
+			.users
+				&-name
+					padding-left: 2px
+				&-description
+					padding-left: 7px
+	&-avatar
+		width: 73px
+		img
+			transition: .25s ease-in-out
+			width: 60px
+			border-radius: 50%
+			box-shadow: 0 0 9px rgba(0, 0, 0, 0.2)
+	&-wrapper
+		display: flex
+		padding: 5px 10px
+		border-radius: 8px
+		width: calc(100% - 20px)
+		box-shadow: 0 4px 8px -3px rgba(0, 0, 0, 0.2)
+	&-info
+		width: calc(100% - 100px)
+	&-name
+		font-size: 20px
+		font-weight: 500
+		transition: .25s ease-in-out
+	&-description
+		white-space: pre-line
+		padding: 3px 0 5px 5px
+		transition: .25s ease-in-out
+		font-size: 14px
+		max-height: 108px
+		overflow-y: hidden
+	&-stats
+		width: 100px
+		display: flex
+		flex-direction: column
+	&-likes, &-dislikes
+		color: $text
+		padding: 3px 10px
+		margin-bottom: 5px
+		border-radius: 20px
+		font-weight: 500
+		opacity: .85
+		text-align: center
+		box-shadow: 0 4px 8px -3px rgba(0, 0, 0, 0.2)
+	&-likes
+		color: $accent
+	&-dislikes
+		color: $text
+
+// Styling user page
+.user
+	display: flex
+	justify-content: center
+	align-items: center
+	height: 100%
+	&-item
+		width: 850px
+		display: flex
+	&-avatar
+		width: 200px
+		img
+			width: 100%
+			border-radius: 50%
+			box-shadow: 0 0 9px rgba(0, 0, 0, 0.2)
+	&-info
+		padding: 0 10px
+		width: calc(100% - 200px)
+	&-name
+		font-size: 20px
+		font-weight: 500
+	&-date
+		font-size: 14px
+		margin-bottom: 10px
+	&-marks
+		display: flex
+		margin-bottom: 15px
+	&-likes, &-dislikes
+		width: 50%
+		box-shadow: 0 0 9px rgba(0, 0, 0, 0.2)
+		border-radius: 20px
+		padding: 4px 10px
+		margin: 0 5px
+		text-align: center
+		font-weight: 500
+	&-likes
+		color: $accent
+	&-dislikes
+		color: $text
+	&-description
+		padding: 0 10px
+		white-space: pre-line
+		&-title
+			font-size: 15px
+	&-btn
+		margin-top: 20px
+		display: flex
+		justify-content: center
+		a
+			padding: 10px 35px
+			letter-spacing: normal
+			font-size: 14px
+		
+// Styling deals page
+.deals
+	max-width: 920px
+	margin: 60px auto 40px
+	padding: 0 10px
+	&-title
+		font-size: 22px
+		font-weight: 500
+		margin: 20px 0
+		text-align: center
+	&-empty
+		text-align: center
+	&-item
+		margin-bottom: 25px
+		display: flex
+	&-avatar
+		width: 65px
+		img
+			width: calc(100% - 10px)
+			border-radius: 50%
+	&-body
+		width: calc(100% - 55px)
+		padding: 10px 10px 8px
+		box-shadow: 0 4px 8px -3px rgba(0, 0, 0, 0.2)
+		border-radius: 8px
+		a
+			color: $accent
+			font-weight: 500
+		i
+			font-size: 15px
+			color: $accent
+		.money
+			font-family: sans-serif
+			color: $accent
+			font-weight: 600
+	&-btns
+		margin: 8px 0 0
+	&-btn
+		padding: 8px 25px
+		margin: 0 10px 0 0
+		transition: .25s
+		&.reject
+			background-color: $gray
+			color: $text
+	&-completed
+		margin-top: 5px
+		font-size: 14px
+		text-align: center
+
+// Styling contract page
+.contract
+	display: flex
+	justify-content: center
+	margin-top: 60px
+	&-body
+		max-width: 1000px
+		width: 100%
+	&-content
+		display: flex
+	&-title
+		text-align: center
+		margin-bottom: 10px
+		font-weight: 500
+	&-posts
+		width: 50%
+		padding: 0 10px 30px
+		&-item
+			margin-bottom: 20px
+			cursor: pointer
+			border-radius: 8px
+			box-shadow: 0 4px 8px -3px rgba(0, 0, 0, 0.2)
+			padding: 7px 10px
+			border: 1px solid transparent
+			transition: .25s ease-in-out
+			&:hover
+				padding-left: 12px
+			&.active
+				border-color: $accent
+		&-title
+			font-size: 20px
+			font-weight: 500
+		&-text
+			font-weight: 300
+			line-height: 1.4
+			padding-left: 8px
+		&-date
+			padding-left: 8px
+			font-size: 14px
+	&-user
+		width: 50%
+		padding: 0 10px 30px
+		&-avatar
+			display: flex
+			justify-content: center
+			margin-bottom: 10px
+			img
+				max-width: 200px
+				max-height: 200px
+				box-shadow: 0 0 9px rgba(0, 0, 0, 0.2)
+				border-radius: 50%
+		&-rating
+			display: flex
+			flex-direction: column
+			align-items: center
+			margin-bottom: 10px
+		&-likes, &-dislikes
+			width: 50%
+			border-radius: 20px
+			box-shadow: 0 0 9px rgba(0, 0, 0, 0.2)
+			padding: 4px 10px
+			text-align: center
+			font-weight: 500
+			margin-bottom: 5px
+			color: $accent
+		&-dislikes
+			color: $text
+		&-username
+			text-align: center
+			font-size: 20px
+			margin-bottom: 7px
+			font-weight: 500
+		&-description
+			text-align: center
+			padding: 0 10px
+			margin-bottom: 10px
+			white-space: pre-line
+		&-btn
+			text-align: center
+			margin-top: 10px
+			.button
+				background-color: $gray
+				color: $text
+				cursor: default
+				transition: .25s ease-in-out
+			&.active
+				.button
+					background-color: $accent
+					color: $white
+					cursor: pointer
+					&:hover
+						background-color: lighten($accent, 10%)
+	&-range
+		margin: 30px 0
+		padding: 0 10px
+		&-title
+			margin-bottom: 5px
+			span
+				font-weight: 600
+				color: $accent
+				font-family: sans-serif
+	&-empty
+		font-size: 18px
+		text-align: center
+		a
+			color: $accent
+			font-weight: 500
+
+// Styling Balance page
+.balance
+	display: flex
+	justify-content: center
+	align-items: center
+	padding: 0 10px
+	width: calc(100% - 20px)
+	min-height: 100%
+	&-wrapper
+		max-width: 900px
+		width: 100%
+		display: flex
+		flex-wrap: wrap
+	&-top
+		display: flex
+		width: 100%
+		margin-bottom: 20px
+	&-avatar
+		width: 90px
+		img
+			width: 80px
+			border-radius: 50%
+			box-shadow: 0 0 9px rgba(0, 0, 0, 0.2)
+	&-status
+		padding: 0 10px
+		width: calc(100% - 90px)
+	&-value
+		font-weight: 500
+		span
+			color: $accent
+			font-size: 16px
+			font-weight: 600
+			margin-left: 3px
+			font-family: sans-serif
+			i
+				font-size: 14px
+	&-title
+		margin: 5px 0 10px 5px
+	&-cash-out
+		background-color: $gray
+		color: $text
+		cursor: default
+		padding: 10px 20px
+		&:hover
+			background-color: $gray
+			color: $text
+		&.active
+			background-color: $accent
+			cursor: pointer
+			color: $white
+			transition: .25s
+			&:hover
+				background-color: lighten($accent, 10%)
+	&-pay, &-history
+		width: calc(50% - 20px)
+		padding: 0 10px
+	&-pay
+		&.hide
+			display: none
+		.form
+			&-subtitle
+				font-weight: 400
+				font-size: 16px
+			&-title
+				text-align: center
+				font-size: 16px
+			&-text
+				font-weight: 400
+				font-size: 15px
+				text-align: center
+			&-control
+				width: calc(60% - 10px)
+
+	&-history
+		&-title
+			text-align: center
+			font-weight: 500
+			margin-bottom: 15px
+		&-item
+			margin-bottom: 15px
+			display: flex
+			flex-wrap: wrap
+			box-shadow: 0 4px 8px -3px rgba(0, 0, 0, 0.2)
+			border-radius: 8px
+			padding: 5px 10px
+		&-name
+			width: 80%
+		&-amount
+			width: 20%
+			font-weight: 600
+			text-align: right
+			color: $accent
+			font-family: sans-serif
+			i
+				&:first-child
+					margin-left: 2px
+		&-date
+			font-size: 12px
+			margin-left: 4px
+			color: #666
+			font-weight: 500
+			width: 100%
+			margin: 0 4px
+			text-align: right
+		&-empty
+			text-align: center
+
+@import '_media'
